@@ -1,0 +1,217 @@
+{
+	"name": "DataEventValue",
+	"type": "record",
+	"namespace": "com.vivek.dto",
+	"doc": "json-contract",
+	"fields": [
+		{
+			"name": "metadata",
+			"type": {
+				"name": "DataMetaData",
+				"type": "record",
+				"fields": [
+					{
+						"name": "eventVersion",
+						"type": "string",
+						"doc": "Version of the event."
+					},
+					{
+						"name": "eventSource",
+						"type": "string",
+						"doc": "Identifies the service that is producing the message"
+					},
+					{
+						"name": "eventName",
+						"type": "string",
+						"doc": "Type of the message"
+					},
+					{
+						"name": "eventTime",
+						"type": "string",
+						"doc": "Time in which this message is produced."
+					}
+				]
+			}
+		},
+		{
+			"name": "payload",
+			"type": {
+				"name": "DataPayload",
+				"type": "record",
+				"fields": [
+					{
+						"name": "header",
+						"doc": "Header item consisting of meta data information",
+						"type": [
+							"null",
+							{
+								"type": "record",
+								"name": "Header",
+								"fields": [
+									{
+										"name": "sender",
+										"type": [
+											"null",
+											"string"
+										],
+										"doc": "Attribute identifies the sender system information"
+									},
+									{
+										"name": "sequenceNumber",
+										"type": [
+											"null",
+											"string"
+										],
+										"doc": "Sequence number of the message which can be used as unique identifier in consumers"
+									},
+									{
+										"name": "priority",
+										"type": [
+											"null",
+											"string"
+										],
+										"doc": "Priority of the message"
+									},
+									{
+										"name": "publishingType",
+										"type": [
+											"null",
+											"string"
+										],
+										"doc": "Publishing type for the message"
+									},
+									{
+										"name": "messageType",
+										"type": [
+											"null",
+											"string"
+										],
+										"doc": "Type of the message"
+									},
+									{
+										"name": "targetGroup",
+										"type": [
+											"null",
+											"string"
+										],
+										"doc": "Target Group for the message"
+									},
+									{
+										"name": "xsdVersion",
+										"type": [
+											"null",
+											"string"
+										],
+										"doc": "XSD version information"
+									}
+								]
+							}
+						]
+					},
+					{
+						"name": "model",
+						"type": {
+							"name": "ModelDataModel",
+							"type": "record",
+							"fields": [
+								{
+									"name": "modelVersionInfo",
+									"doc": "This element consists of model version information",
+									"type": [
+										"null",
+										{
+											"name": "ModelDataModelVersionInfo",
+											"type": "record",
+											"fields": [
+												{
+													"name": "versionId",
+													"type": [
+														"null",
+														"string"
+													],
+													"doc": "Version Id"
+												},
+												{
+													"name": "modelChange",
+													"type": [
+														"null",
+														"boolean"
+													],
+													"doc": "Indicates whether model is changed or not"
+												}
+											]
+										}
+									]
+								},
+								{
+									"name": "groupNumber",
+									"type": [
+										"null",
+										"string"
+									],
+									"doc": "group number"
+								},
+								{
+									"name": "chasisNumber",
+									"type": [
+										"null",
+										"string"
+									],
+									"doc": "Chasis Model number"
+								},
+								{
+									"name": "modelFamily",
+									"type": [
+										"null",
+										"string"
+									],
+									"doc": "Model Family"
+								},
+								{
+									"name": "activity",
+									"type": [
+										"null",
+										"string"
+									],
+									"doc": "model activity"
+								},
+								{
+									"name": "modelSize",
+									"doc": "Model Size item list",
+									"type": [
+										"null",
+										{
+											"type": "array",
+											"items": {
+												"name": "ModelSize",
+												"type": "record",
+												"fields": [
+													{
+														"name": "sourcingSizeCode2",
+														"type": [
+															"null",
+															"string"
+														],
+														"doc": "Sourcing size code 2"
+													},
+													{
+														"name": "sourcingSizeCode3",
+														"type": [
+															"null",
+															"string"
+														],
+														"doc": "Sourcing size code 3"
+													}
+												]
+											}
+										}
+									]
+								}
+							]
+						}
+					}
+				]
+			}
+		}
+	]
+}
